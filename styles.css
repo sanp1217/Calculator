@@ -16,3 +16,11 @@
     width: 100px;
     height: 75px;
 }
+
+#btnsContainer .display{
+    width: 400px;
+}
+
+#btnsContainer .clearBtn{
+    width: 400px;
+}
