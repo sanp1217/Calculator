@@ -1,0 +1,18 @@
+#calcContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+#btnsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid blue;
+    width: 400px;
+}
+
+#btnsContainer button{
+    width: 100px;
+    height: 75px;
+}
