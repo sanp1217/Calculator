@@ -30,3 +30,29 @@ function operate(operator, a, b){
     }
     console.log('Invalid operation');
 }
+
+let firstNum = null;
+let operation = null;
+let secondNum = null;
+let display = document.querySelector('#btnsContainer .display');
+
+function addListenersToNums(){
+    const numBtns = document.querySelectorAll('#btnsContainer .numberBtn');
+    
+    numBtns.forEach(numBtn => {
+        numBtn.addEventListener('click', () => {
+            display.textContent = numBtn.textContent;
+
+            if(firstNum === null){
+                firstNum = parseInt(numBtn.textContent);
+                console.log(firstNum);
+            }else if(secondNum === null){
+                secondNum = parseInt(numBtn.textContent);
+                console.log(secondNum);
+            }
+        });
+    });
+}
+
+
+addListenersToNums();
