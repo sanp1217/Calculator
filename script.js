@@ -55,4 +55,18 @@ function addListenersToNums(){
 }
 
 
+function addListenersToOper(){
+    const operBtns = document.querySelectorAll('#btnsContainer .operationBtn');
+
+    operBtns.forEach(operBtn => {
+        operBtn.addEventListener('click', () => {
+            if(operation === null){
+                operation = operBtn.textContent;
+                console.log(operation);
+            }
+        });
+    });
+}
+
 addListenersToNums();
+addListenersToOper();
