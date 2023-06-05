@@ -54,6 +54,20 @@ function addListenersToNums(){
     });
 }
 
+function addListenerToEquals(){
+    const equalBtn = document.querySelector('#btnsContainer .equalsBtn');
+
+    equalBtn.addEventListener('click', () => {
+        if(firstNum != null && secondNum != null && operation != null){
+            let result = operate(operation, firstNum, secondNum);
+            console.log(result);
+            display.textContent = result;
+            firstNum = null;
+            operation = null;
+            secondNum = null;
+        }
+    });
+}
 
 function addListenersToOper(){
     const operBtns = document.querySelectorAll('#btnsContainer .operationBtn');
@@ -70,3 +84,4 @@ function addListenersToOper(){
 
 addListenersToNums();
 addListenersToOper();
+addListenerToEquals();
