@@ -54,7 +54,7 @@ function addListenersToNums() {
     });
 }
 
-function addListenerToEquals() {
+function operateNums() {
     if (firstNum != null && secondNum != null && operation != null) {
         let result = operate(operation, firstNum, secondNum);
         console.log(result);
@@ -81,7 +81,6 @@ operBtns.forEach(operBtn => {
     operBtn.addEventListener('click', () => changeOper(operBtn));
 });
 
-equalBtn.addEventListener('click', () => addListenerToEquals());
+equalBtn.addEventListener('click', () => operateNums());
 
 addListenersToNums();
-addListenerToEquals();
