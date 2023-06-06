@@ -48,7 +48,7 @@ operBtns.forEach(operBtn => {
     operBtn.addEventListener('click', () => changeOper(operBtn));
 });
 
-equalBtn.addEventListener('click', () => operateNums());
+equalBtn.addEventListener('click', () => performCalculation());
 
 function changeNum(numBtn) {
     display.textContent = numBtn.textContent;
@@ -62,7 +62,7 @@ function changeNum(numBtn) {
     }
 }
 
-function operateNums() {
+function performCalculation() {
     if (firstNum != null && secondNum != null && operation != null) {
         let result = operate(operation, firstNum, secondNum);
         console.log(result);
