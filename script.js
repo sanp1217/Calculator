@@ -36,22 +36,16 @@ let operation = null;
 let secondNum = null;
 let display = document.querySelector('#btnsContainer .display');
 
-function addListenersToNums() {
-    const numBtns = document.querySelectorAll('#btnsContainer .numberBtn');
+function changeNum(numBtn) {
+    display.textContent = numBtn.textContent;
 
-    numBtns.forEach(numBtn => {
-        numBtn.addEventListener('click', () => {
-            display.textContent = numBtn.textContent;
-
-            if (firstNum === null) {
-                firstNum = parseInt(numBtn.textContent);
-                console.log(firstNum);
-            } else if (secondNum === null) {
-                secondNum = parseInt(numBtn.textContent);
-                console.log(secondNum);
-            }
-        });
-    });
+    if (firstNum === null) {
+        firstNum = parseInt(numBtn.textContent);
+        console.log(firstNum);
+    } else if (secondNum === null) {
+        secondNum = parseInt(numBtn.textContent);
+        console.log(secondNum);
+    }
 }
 
 function operateNums() {
@@ -77,10 +71,12 @@ const operBtns = document.querySelectorAll('#btnsContainer .operationBtn');
 const equalBtn = document.querySelector('#btnsContainer .equalsBtn');
 const numBtns = document.querySelectorAll('#btnsContainer .numberBtn');
 
+numBtns.forEach(numBtn => {
+    numBtn.addEventListener('click', () => changeNum(numBtn));
+});
+
 operBtns.forEach(operBtn => {
     operBtn.addEventListener('click', () => changeOper(operBtn));
 });
 
 equalBtn.addEventListener('click', () => operateNums());
-
-addListenersToNums();
