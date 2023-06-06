@@ -36,6 +36,20 @@ let operation = null;
 let secondNum = null;
 let display = document.querySelector('#btnsContainer .display');
 
+const operBtns = document.querySelectorAll('#btnsContainer .operationBtn');
+const equalBtn = document.querySelector('#btnsContainer .equalsBtn');
+const numBtns = document.querySelectorAll('#btnsContainer .numberBtn');
+
+numBtns.forEach(numBtn => {
+    numBtn.addEventListener('click', () => changeNum(numBtn));
+});
+
+operBtns.forEach(operBtn => {
+    operBtn.addEventListener('click', () => changeOper(operBtn));
+});
+
+equalBtn.addEventListener('click', () => operateNums());
+
 function changeNum(numBtn) {
     display.textContent = numBtn.textContent;
 
@@ -66,17 +80,3 @@ function changeOper(operBtn) {
         console.log(operation);
     }
 }
-
-const operBtns = document.querySelectorAll('#btnsContainer .operationBtn');
-const equalBtn = document.querySelector('#btnsContainer .equalsBtn');
-const numBtns = document.querySelectorAll('#btnsContainer .numberBtn');
-
-numBtns.forEach(numBtn => {
-    numBtn.addEventListener('click', () => changeNum(numBtn));
-});
-
-operBtns.forEach(operBtn => {
-    operBtn.addEventListener('click', () => changeOper(operBtn));
-});
-
-equalBtn.addEventListener('click', () => operateNums());
