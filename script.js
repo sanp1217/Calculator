@@ -69,19 +69,21 @@ function addListenerToEquals(){
     });
 }
 
-function addListenersToOper(){
-    const operBtns = document.querySelectorAll('#btnsContainer .operationBtn');
-
-    operBtns.forEach(operBtn => {
-        operBtn.addEventListener('click', () => {
-            if(operation === null){
-                operation = operBtn.textContent;
-                console.log(operation);
-            }
-        });
-    });
+function changeOper(operBtn){
+    if(operation === null){
+        display.textContent = operBtn.textContent;
+        operation = operBtn.textContent;
+        console.log(operation);
+    }
 }
 
+const operBtns = document.querySelectorAll('#btnsContainer .operationBtn');
+const equalBtn = document.querySelector('#btnsContainer .equalsBtn');
+const numBtns = document.querySelectorAll('#btnsContainer .numberBtn');
+
+operBtns.forEach(operBtn => {
+    operBtn.addEventListener('click', () => changeOper(operBtn));
+});
+
 addListenersToNums();
-addListenersToOper();
 addListenerToEquals();
