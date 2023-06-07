@@ -31,9 +31,14 @@ function operate(operator, a, b) {
     console.log('Invalid operation');
 }
 
-let firstNum = null;
+//Since I'm having the first and second nums be strings
+//so its possible to input multiple digit numbers, they
+//need to be empty strings otherwise the nums would be 
+//something like null2. 
+let firstNum = '';
 let operation = null;
-let secondNum = null;
+let secondNum = '';
+let operationPressed = false;
 let display = document.querySelector('#btnsContainer .display');
 
 const operBtns = document.querySelectorAll('#btnsContainer .operationBtn');
@@ -51,25 +56,31 @@ operBtns.forEach(operBtn => {
 equalBtn.addEventListener('click', () => performCalculation());
 
 function changeNum(numBtn) {
-    display.textContent = numBtn.textContent;
+    //Is a string but will be converted when the equals 
+    //button is pressed. This is done because the input
+    //before would only take single digit numbers.
+    display.textContent += numBtn.textContent;
 
-    if (firstNum === null) {
-        firstNum = parseInt(numBtn.textContent);
-        console.log(firstNum);
-    } else if (secondNum === null) {
-        secondNum = parseInt(numBtn.textContent);
-        console.log(secondNum);
+    if (!operationPressed) {
+        firstNum += numBtn.textContent;
+    }
+    //The operation being pressed means the user is now
+    //entering the second number.
+    else if (operationPressed) {
+        secondNum += numBtn.textContent;
     }
 }
 
 function performCalculation() {
     if (firstNum != null && secondNum != null && operation != null) {
-        let result = operate(operation, firstNum, secondNum);
-        console.log(result);
+        let result = operate(operation, parseInt(firstNum), parseInt(secondNum));
         display.textContent = result;
-        firstNum = null;
+
+        //Reset variables
+        firstNum = '';
         operation = null;
-        secondNum = null;
+        secondNum = '';
+        operationPressed = false;
     }
 }
 
@@ -77,6 +88,6 @@ function changeOper(operBtn) {
     if (operation === null) {
         display.textContent = operBtn.textContent;
         operation = operBtn.textContent;
-        console.log(operation);
+        operationPressed = true;
     }
 }
