@@ -73,7 +73,8 @@ function changeNum(numBtn) {
 }
 
 function performCalculation() {
-    if (firstNum != null && secondNum != null && operation != null) {
+    //Only do the calculation if the variables are not empty.
+    if (firstNum != '' && secondNum != '' && operation != null) {
 
         if (result == null) {
             result = operate(operation, parseInt(firstNum), parseInt(secondNum));
