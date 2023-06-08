@@ -33,11 +33,12 @@ function operate(operator, a, b) {
 
 //Since I'm having the first and second nums be strings
 //so its possible to input multiple digit numbers, they
-//need to be empty strings otherwise the nums would be 
+//need to be empty strings otherwise the variables would be 
 //something like null2. 
 let firstNum = '';
 let operation = null;
 let secondNum = '';
+let result = null;
 let operationPressed = false;
 let display = document.querySelector('#btnsContainer .display');
 
@@ -73,7 +74,13 @@ function changeNum(numBtn) {
 
 function performCalculation() {
     if (firstNum != null && secondNum != null && operation != null) {
-        let result = operate(operation, parseInt(firstNum), parseInt(secondNum));
+
+        if (result == null) {
+            result = operate(operation, parseInt(firstNum), parseInt(secondNum));
+        } else {
+            result = operate(operation, result, parseInt(secondNum));
+        }
+
         display.textContent = result;
 
         //Reset variables
