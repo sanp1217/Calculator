@@ -1,26 +1,27 @@
-#calcContainer{
+#calcContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
 }
 
-#btnsContainer{
+#btnsContainer {
     display: flex;
     flex-wrap: wrap;
     border: 1px solid blue;
     width: 400px;
 }
 
-#btnsContainer button{
+#btnsContainer button {
     width: 100px;
     height: 75px;
 }
 
-#btnsContainer .display{
+#btnsContainer .display {
     width: 400px;
+    height: 100px;
 }
 
-#btnsContainer .clearBtn{
+#btnsContainer .clearBtn {
     width: 400px;
 }
