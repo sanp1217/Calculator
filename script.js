@@ -78,22 +78,19 @@ function changeNum(numBtn) {
 
 function performCalculation() {
     //Only do the calculation if the variables are not empty.
-    if (firstNum != '' && secondNum != '' && operation != null) {
-
-        if (result == null) {
-            result = operate(operation, parseInt(firstNum), parseInt(secondNum));
-        } else {
-            result = operate(operation, result, parseInt(secondNum));
-        }
-
-        display.textContent = result;
-
-        //Reset variables
-        firstNum = '';
-        operation = null;
-        secondNum = '';
-        operationPressed = false;
+    if (firstNum != '' && secondNum != '' && operation != null && result === null) {
+        result = operate(operation, parseInt(firstNum), parseInt(secondNum));
+    } else {
+        result = operate(operation, result, parseInt(secondNum));
     }
+
+    display.textContent = result;
+
+    //Reset variables
+    firstNum = '';
+    operation = null;
+    secondNum = '';
+    operationPressed = false
 }
 
 function changeOper(operBtn) {
