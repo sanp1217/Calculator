@@ -49,6 +49,9 @@ let display = document.querySelector('#btnsContainer .display');
 const operBtns = document.querySelectorAll('#btnsContainer .operationBtn');
 const equalBtn = document.querySelector('#btnsContainer .equalsBtn');
 const numBtns = document.querySelectorAll('#btnsContainer .numberBtn');
+const clearBtn = document.querySelector('#btnsContainer .clearBtn');
+
+clearBtn.addEventListener('click', () => clear());
 
 numBtns.forEach(numBtn => {
     numBtn.addEventListener('click', () => changeNum(numBtn));
@@ -99,4 +102,13 @@ function changeOper(operBtn) {
         operation = operBtn.textContent;
         operationPressed = true;
     }
+}
+
+function clear() {
+    display.textContent = '0';
+    firstNum = '';
+    operation = null;
+    secondNum = '';
+    operationPressed = false
+    result = null;
 }
