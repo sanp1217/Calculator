@@ -83,7 +83,7 @@ function performCalculation() {
     //Only do the calculation if the variables are not empty.
     if (firstNum != '' && secondNum != '' && operation != null && result === null) {
         result = operate(operation, parseInt(firstNum), parseInt(secondNum));
-    } else {
+    } else if (result && operation != null) {
         result = operate(operation, result, parseInt(secondNum));
     }
 
